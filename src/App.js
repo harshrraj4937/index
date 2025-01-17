@@ -1,37 +1,41 @@
 import React from "react";
 import avatar from "./images/avatar.png"
-import { Layout, Menu, ConfigProvider, Switch, theme , Button} from "antd";
-import { GithubOutlined, LinkedinOutlined, MailOutlined, BulbOutlined, LinkOutlined, CodeOutlined} from "@ant-design/icons";
+import { Layout, Menu, ConfigProvider, Switch, theme } from "antd";
+import { GithubOutlined, LinkedinOutlined, MailOutlined, BulbOutlined} from "@ant-design/icons";
 import { Card, List, Row, Col, Typography } from 'antd';
-
+import Terminal from "./components/Terminal/terminal";
+import ProjectShowcase from "./components/ProjectShowCase/projects";
 import "antd/dist/reset.css";
 import "./App.css";
 const { Text, Title } = Typography;
 const { Header, Content, Footer } = Layout;
 
-const Terminal = () => (
-  <Card style={{ background: "#1c1c1c", color: "#39ff14" }} bordered={false}>
-    <pre>
-      ForrestKnight (FK) Not A Corporation. All knights reserved. {"\n\n"}
-      {"        _.-'''''-._"} {"\n"}
-      {"      .'  _     _  '."} {"\n"}
-      {"     /   (_)   (_)   \\"} {"\n"}
-      {"    |  ,           ,  |"} {"\n"}
-      {"    |  \\`.       .`/  |"} {"\n"}
-      {"     \\  '.`'\"\"'\"`.'  /"} {"\n"}
-      {"      '.  `'---'`  .'"} {"\n"}
-      {"        '-._____.-"} {"\n"}
-      {"\n"}
-      {"------------------------------------------------"} {"\n"}
-      {"Welcome to my interactive web terminal."} {"\n"}
-      {"For a list of available commands, type "}
-      <span style={{ color: "#4a90e2" }}>`help`</span>. {"\n"}
-      visitor@fkcodes.com:~${" "}
-    </pre>
-  </Card>
-);
+const Banner = ({ message, style }) => {
+  return (
+    <div style={{ ...stylesBanner.banner, ...style }}>
+      {message}
+    </div>
+  );
+};
 
+const stylesBanner = {
+  banner: {
+    position: 'absolute',
+    left: -20,
+    top: 20,
+    width: 400,  // Increase the width here (from 160 to 250, for example)
+    transform: 'rotate(-45deg)',  // Apply rotation directly in CSS
+    backgroundColor: 'black',
+    color: 'white',
+    padding: 2,
+    textAlign: 'center',
+    zIndex: 9999,  // Ensure the banner appears on top of other elements
+    borderRadius: '15px',
+  },
+};
 const App = () => {
+
+  
 
   const [darkMode, setDarkMode] = React.useState(true);
 
@@ -44,6 +48,14 @@ const App = () => {
       <Layout style={{ minHeight: "100vh" }}>
         <Header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ color: "white", fontSize: "1.5rem", fontWeight: "bold" }}>Harshraj Sadwelkar</div>
+          <Banner
+          message="Work In Progress" 
+          style={{
+            color: 'black', 
+            backgroundColor: 'yellow', 
+            fontWeight: 'bold',
+          }}
+          />
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">Home</Menu.Item>
             <Menu.Item key="2">About</Menu.Item>
@@ -179,14 +191,12 @@ const SkillCard = () => {
     { skill: 'JavaScript', level: 'Intermediate' },
     { skill: 'TypeScript', level: 'Intermediate' },
     { skill: 'React', level: 'Basic' },
-    { skill: 'BootStrap', level: 'Intermediate' },
   ];
 
   const backendSkills = [
     { skill: 'Golang', level: 'Advanced' },
     { skill: 'Java Core', level: 'Advanced' },
     { skill: 'Django Framework', level: 'Advanced' },
-    { skill: 'SpringBoot', level: 'Intermediate' },
     { skill: 'CS Fundamentals (DSA, OOPS, CN, OS)', level: 'Advanced' },
     { skill: 'Tools and Dependencies (Redis, Celery, RabbitMQ, MQTT, Graphql, Postgres, Hasura, Signoz, Prometheus)', level: 'Intermediate' },
   ];
@@ -218,103 +228,10 @@ const SkillCard = () => {
         </Col>
       </Row>
 
-      <div style={{ textAlign: 'center', marginTop: '32px' }}>
-        {/* <div>
-          <a href="#" style={{ margin: '0 10px' }}><HomeOutlined className="text-green-300" /></a>
-          <a href="#" style={{ margin: '0 10px' }}><SearchOutlined className="text-gray-400" /></a>
-          <a href="#" style={{ margin: '0 10px' }}><HeartOutlined className="text-gray-400" /></a>
-          <a href="#" style={{ margin: '0 10px' }}><FileTextOutlined className="text-gray-400" /></a>
-          <a href="#" style={{ margin: '0 10px' }}><UserOutlined className="text-gray-400" /></a>
-        </div> */}
-      </div>
     </div>
   );
 };
 
-const ProjectShowcase = () => {
-  const projects = [
-    {
-      title: 'SpringBoot API Project',
-      description: 'Blogging App RestFul API',
-      image: 'https://storage.googleapis.com/a1aa/image/D5rDF4yt6ugdFuw8GjjhLTNUg_i2h9wXiCQjTusBTkI.jpg',
-      liveLink: '#',
-      sourceCodeLink: '#',
-      bgColor: '#1E293B', // Dark teal
-    },
-    {
-      title: 'JSP Servlet Webapp Project',
-      description: 'Hospital Management App',
-      image: 'https://storage.googleapis.com/a1aa/image/tqsQBUVcI7vdtD4KXsIgAWWdLIJdZj_UPldVojl9CXQ.jpg',
-      liveLink: '#',
-      sourceCodeLink: '#',
-      bgColor: '#2D3748', // Dark gray
-    },
-    {
-      title: 'Project',
-      description: 'Description of the project goes here.',
-      image: 'https://storage.googleapis.com/a1aa/image/IM9wq2_ADM8kbo7jQAK2WGKuBu4vNyrzfScvh9ysWKU.jpg',
-      liveLink: '#',
-      sourceCodeLink: '#',
-      bgColor: '#F87171', // Red
-    },
-    {
-      title: 'Men\'s Fashion',
-      description: 'Description of the project goes here.',
-      image: 'https://storage.googleapis.com/a1aa/image/03tp_jTdQkJbCw9dyYtgSDLdsWUnj5aYgzgkuZBrAec.jpg',
-      liveLink: '#',
-      sourceCodeLink: '#',
-      bgColor: '#1E293B', // Dark teal
-    },
-  ];
-
-  return (
-    <div style={{ backgroundColor: '#0f172a', padding: '20px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-        <Title level={1} className="text-white">My Projects and Profiles</Title>
-        <Title level={2} className="text-gray-400">Portfolio</Title>
-      </div>
-
-      <Row gutter={[16, 16]} justify="center">
-        {projects.map((project, index) => (
-          <Col xs={24} sm={12} md={8} key={index}>
-            <Card
-              hoverable
-              cover={<img alt={project.title} src={project.image} />}
-              style={{
-                backgroundColor: project.bgColor,
-                borderRadius: '8px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              <Title level={3} className="text-white">{project.title}</Title>
-              <Text className="text-lg text-gray-300">{project.description}</Text>
-              <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
-                <Button
-                  type="primary"
-                  icon={<LinkOutlined />}
-                  href={project.liveLink}
-                  target="_blank"
-                  style={{ backgroundColor: '#2D9CDB', borderColor: '#2D9CDB' }}
-                >
-                  See Live
-                </Button>
-                <Button
-                  type="default"
-                  icon={<CodeOutlined />}
-                  href={project.sourceCodeLink}
-                  target="_blank"
-                  style={{ backgroundColor: '#F2C94C', borderColor: '#F2C94C' }}
-                >
-                  Source Code
-                </Button>
-              </div>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </div>
-  );
-};
 
 
 export default App;
