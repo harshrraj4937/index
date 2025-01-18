@@ -103,9 +103,11 @@ const App = () => {
 const SideBySideDisplay = ({ avatar }) => {
   return (
     <div style={styles.container}>
-      <div style={styles.terminalWrapper}>
+              <Terminal />
+
+      {/* <div style={styles.terminalWrapper}>
         <Terminal />
-      </div>
+      </div> */}
       {/* <div style={styles.imageWrapper}>
         <img
           alt="Person standing with arms crossed, surrounded by neon pink square frames"
@@ -186,19 +188,19 @@ const SkillCardItem = ({ title, skills, backgroundColor, textColor }) => {
 
 const SkillCard = () => {
   const frontendSkills = [
-    { skill: 'HTML', level: 'Intermediate' },
-    { skill: 'CSS', level: 'Basic' },
-    { skill: 'JavaScript', level: 'Intermediate' },
-    { skill: 'TypeScript', level: 'Intermediate' },
-    { skill: 'React', level: 'Basic' },
+    { skill: 'HTML'},
+    { skill: 'CSS'},
+    { skill: 'JavaScript'},
+    { skill: 'TypeScript'},
+    { skill: 'React'},
   ];
 
   const backendSkills = [
-    { skill: 'Golang', level: 'Advanced' },
-    { skill: 'Java Core', level: 'Advanced' },
-    { skill: 'Django Framework', level: 'Advanced' },
-    { skill: 'CS Fundamentals (DSA, OOPS, CN, OS)', level: 'Advanced' },
-    { skill: 'Tools and Dependencies (Redis, Celery, RabbitMQ, MQTT, Graphql, Postgres, Hasura, Signoz, Prometheus)', level: 'Intermediate' },
+    { skill: 'Golang'},
+    { skill: 'Java Core'},
+    { skill: 'Django Framework'},
+    { skill: 'CS Fundamentals (DSA, OOPS, CN, OS)'},
+    { skill: 'Tools and Dependencies (Redis, Celery, RabbitMQ, MQTT, Graphql, Postgres, Hasura, Signoz, Prometheus)'},
   ];
 
   return (

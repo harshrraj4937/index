@@ -1,5 +1,3 @@
-import { Card } from "antd";
-
 const Terminal = () => (
   <IframeLoader/>
   );
@@ -14,8 +12,8 @@ const IframeLoader = () => {
         title="Localhost Content"
         style={{
           margin: "0",
-          width: "100%",
-          height: "100%",
+          width: "100vw",
+          height: "70vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
