@@ -1,28 +1,30 @@
 import { Card } from "antd";
 
 const Terminal = () => (
-    <Card style={{ background: "#1c1c1c", color: "#39ff14" }} bordered={false}>
-      <pre>
-        Harshrraj Interactive Terminal. {"\n\n"}
-        {"            __/\__"} {"\n"}
-{"                   |      |"} {"\n"}
-{"      /            |  .   |\\ "} {"\n"}
-{"     //            |      |\\\\ "} {"\n"}
-{"    //             |______| \\\\ "} {"\n"}
-{"   /               |      |   \\ "} {"\n"}
-{"              /    |      |    \\ "} {"\n"}
-{" /_________________|______|_________________\\"} {"\n"}
-{"  \\    |      |    /"} {"\n"}
-{"   \\   |______|   /"} {"\n"}
-{"    \\__|______|__/"} {"\n"}
-{"       |      |"} {"\n"}
-        {"------------------------------------------------"} {"\n"}
-        {"Welcome to my interactive web terminal."} {"\n"}
-        {"For a list of available commands, type "}
-        <span style={{ color: "#4a90e2" }}>`help`</span>. {"\n"}
-        {" "}
-      </pre>
-    </Card>
+  <IframeLoader/>
   );
 
 export default Terminal;
+
+const IframeLoader = () => {
+  return (
+    <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
+      <iframe
+        src="https://terminal-zr4l.onrender.com/"
+        title="Localhost Content"
+        style={{
+          margin: "0",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#1e1e1e",
+          color: "#00ff00",
+          fontFamily: "monospace",
+          overflow: "hidden",
+        }}
+      ></iframe>
+    </div>
+  );
+};

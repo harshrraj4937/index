@@ -21,10 +21,10 @@ const Banner = ({ message, style }) => {
 const stylesBanner = {
   banner: {
     position: 'absolute',
-    left: -20,
-    top: 20,
+    right: -40,
+    top: 40,
     width: 400,  // Increase the width here (from 160 to 250, for example)
-    transform: 'rotate(-45deg)',  // Apply rotation directly in CSS
+    transform: 'rotate(45deg)',  // Apply rotation directly in CSS
     backgroundColor: 'black',
     color: 'white',
     padding: 2,
@@ -106,7 +106,7 @@ const SideBySideDisplay = ({ avatar }) => {
       <div style={styles.terminalWrapper}>
         <Terminal />
       </div>
-      <div style={styles.imageWrapper}>
+      {/* <div style={styles.imageWrapper}>
         <img
           alt="Person standing with arms crossed, surrounded by neon pink square frames"
           src={avatar}
@@ -114,7 +114,7 @@ const SideBySideDisplay = ({ avatar }) => {
         />
         <div style={styles.buttonWrapper}>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
